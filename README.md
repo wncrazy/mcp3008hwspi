@@ -233,6 +233,9 @@ git clone --depth=1 --branch rpi-4.19.y https://github.com/raspberrypi/linux
 ```
 sed -i "s/udelay(10);/\/\/udelay(10);/" linux/drivers/spi/spi.c
 cat linux/drivers/spi/spi.c | grep "udelay(10);"
+**** in newer versions of the kernel the line that should be removed is:
+_spi_transfer_cs_change_delay(msg, xfer);
+
 ```
 
 Kernel configuration commands are dependent on the model of Raspberry Pi. This is a relatively quick step (takes under a minute):
